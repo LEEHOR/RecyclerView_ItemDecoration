@@ -209,7 +209,7 @@ public class RecyclerViewFragment extends BaseFragment {
                 break;
             case 5:
                 recycler_title.setText("5");
-                recyclerView.addItemDecoration(new RecyclerSimplePadding_color(getActivity()));
+                //recyclerView.addItemDecoration(new RecyclerSimplePadding_color(getActivity()));
                 recyclerView.addItemDecoration(new RecyclerViewItemDecoration_StickyHeader(getActivity(), new RecyclerViewItemDecoration_StickyHeader.DecorationCallback() {
                     @Override
                     public long getGroupId(int position) {

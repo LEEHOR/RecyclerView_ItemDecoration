@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="12dp">
+    android:layout_height="match_parent">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,6 +16,8 @@
                 android:layout_height="wrap_content" />
 
             <android.support.v7.widget.RecyclerView
+                android:paddingLeft="@dimen/dp_10"
+                android:paddingRight="@dimen/dp_10"
                 android:layout_below="@+id/recycler_title"
                 android:id="@+id/recycle_re"
                 android:layout_width="match_parent"
@@ -35,9 +36,10 @@
         android:background="@color/colorAccent"
         android:padding="@dimen/dp_10"
         android:layout_gravity="center"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:visibility="gone"
         android:textColor="@color/black"
+        android:textSize="16dp"
         android:gravity="center"/>
 </FrameLayout>

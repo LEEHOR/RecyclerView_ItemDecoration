@@ -33,7 +33,7 @@ public class RecyclerViewItemDecoration_StickyHeader extends RecyclerView.ItemDe
         resources = context.getResources();
         dimension = context.getResources().getDimensionPixelOffset(R.dimen.dp_10);
         paint = new Paint();
-        paint.setColor(context.getResources().getColor(R.color.left));
+        paint.setColor(context.getResources().getColor(R.color.right));
 
         textPaint = new TextPaint();
         fontMetrics = new Paint.FontMetrics();
