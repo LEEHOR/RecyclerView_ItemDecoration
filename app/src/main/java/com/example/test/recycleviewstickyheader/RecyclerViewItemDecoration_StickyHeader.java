@@ -42,8 +42,8 @@ public class RecyclerViewItemDecoration_StickyHeader extends RecyclerView.ItemDe
         textPaint.setTextSize(80); //大小
         textPaint.setColor(resources.getColor(R.color.black));
         textPaint.getFontMetrics(fontMetrics); //字体风格
-        textPaint.setTextAlign(Paint.Align.LEFT);
-        textPaint.setAntiAlias(true);
+        textPaint.setTextAlign(Paint.Align.LEFT); //文字位置
+        textPaint.setAntiAlias(true);  //抗锯齿
         topGap = resources.getDimensionPixelOffset(R.dimen.dp_20);
     }
 

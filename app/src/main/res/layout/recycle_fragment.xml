@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp"
-    android:orientation="vertical">
-    <TextView
-        android:gravity="center"
-        android:id="@+id/recycler_title"
+    android:padding="12dp">
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:gravity="center"
+                android:layout_alignParentTop="true"
+                android:id="@+id/recycler_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycle_re"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"></android.support.v7.widget.RecyclerView>
-</LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:layout_below="@+id/recycler_title"
+                android:id="@+id/recycle_re"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <com.example.test.recycleviewstickyheader.SlideBar.SideBar
+                android:id="@+id/slideBar"
+                android:layout_alignTop="@+id/recycle_re"
+                android:layout_alignBottom="@+id/recycle_re"
+                android:layout_alignParentRight="true"
+                android:layout_width="25dp"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+    </FrameLayout>
+    <TextView
+        android:id="@+id/textdialog"
+        android:background="@color/colorAccent"
+        android:padding="@dimen/dp_10"
+        android:layout_gravity="center"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+</FrameLayout>

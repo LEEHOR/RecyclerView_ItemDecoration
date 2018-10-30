@@ -1,10 +1,13 @@
 package com.example.test.recycleviewstickyheader;
 
 import android.os.Bundle;
-import android.print.PrinterId;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.TextView;
+
+import com.example.test.recycleviewstickyheader.SlideBar.SideBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,10 @@ public class RecyclerViewFragment extends BaseFragment {
     RecyclerView recyclerView;
     @BindView(R.id.recycler_title)
     TextView recycler_title;
+    @BindView(R.id.slideBar)
+    SideBar sideBar;
+    @BindView(R.id.textdialog)
+    TextView textdialog;
     private List<Bean> list = new ArrayList<>();
     private  List<Bean> sortEntity;
 
@@ -130,12 +137,34 @@ public class RecyclerViewFragment extends BaseFragment {
         list.add(new Bean("亳州", "B"));
         list.add(new Bean("池州", "C"));
         list.add(new Bean("宣城", "X"));
-
         linearLayoutManager = new LinearLayoutManager(getActivity());
         adapter = new RecyclerView_adapter(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
         sortEntity = Bean.getSortEntity(list);//排序
+        sideBar.setOnTouchingLetterChangedListener(new SideBar.OnTouchingLetterChangedListener() {
+            @Override
+            public void onHit(String letter) {
+                textdialog.setVisibility(View.VISIBLE);
+                textdialog.setText(letter);
+                if (sortEntity ==null || sortEntity.isEmpty()) return;
+                if (TextUtils.isEmpty(letter)) return;
+                int size=sortEntity.size();
+                for (int i = 0; i <size ; i++) {
+                  if (TextUtils.equals(letter.substring(0,1),sortEntity.get(i).getCity_code().substring(0,1).toUpperCase())){
+                        if (linearLayoutManager !=null){
+                            linearLayoutManager.scrollToPositionWithOffset(i,0);
+                            return;
+                        }
+                  }
+                }
+            }
+
+            @Override
+            public void onCancel() {
+                textdialog.setVisibility(View.GONE);
+            }
+        });
     }
 
     @Override

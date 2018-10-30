@@ -64,7 +64,7 @@ public class RecyclerViewItemDecoration_section extends RecyclerView.ItemDecorat
     public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         super.onDraw(c, parent, state);
         float left = parent.getPaddingLeft();
-        float right = parent.getPaddingRight();
+        float right =parent.getWidth() - parent.getPaddingRight();
         int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View view = parent.getChildAt(i);
